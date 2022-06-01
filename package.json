@@ -13,7 +13,10 @@
     "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@iconify/vue": "^3.2.1",
     "@vitejs/plugin-vue": "^2.3.3",
+    "sass": "^1.52.1",
+    "sass-loader": "^13.0.0",
     "vite": "^2.9.9"
   }
 }
