@@ -1,5 +1,5 @@
 <template>
-  <label class="quiz-item" :class="this.select === this.question.title ? 'selected' : false">
+  <label class="quiz-item" :class="select === this.question.title ? 'selected' : false">
     <input class="radio" name="radio" type="radio" v-bind:value="question.title" @click="selectAnswer"/>
     <span class="icon"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="42"/></svg></span>
     <span class="question-title"><slot></slot></span>
@@ -11,7 +11,7 @@ export default {
   name: "AnswerInputRadio",
   props: {
     question: Object,
-    select: String
+    select: String,
   },
 
   data () {
@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     selectAnswer() {
-      this.$emit('selectAnswer', this.question.title)
+      this.$emit('selectAnswer', this.question)
     },
   },
 }
@@ -36,8 +36,7 @@ export default {
 .quiz-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  max-width: 631px;
+  gap: 24px;
   padding: 16px;
   outline: 1px solid var(--gray);
   border-radius: 6px;
@@ -59,7 +58,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 32px;
+    min-width: 32px;
     height: 32px;
     border: 2px solid var(--gray);
     border-radius: 24px;

@@ -1,6 +1,6 @@
 <template>
   <label class="quiz-item" :class="isActive ? 'selected' : false">
-    <input class="checkbox" type="checkbox" v-bind:value="question.title" @click="isActive = !isActive"/>
+    <input class="checkbox" type="checkbox" :value="question.title" @click="isActive = !isActive"/>
     <span class="icon"><icon icon="heroicons-solid:check"></icon></span>
     <span class="question-title"><slot></slot></span>
   </label>
@@ -18,13 +18,8 @@ export default {
 
   data () {
     return {
-    isActive: false
+    isActive: false,
     }
-  },
-  methods: {
-    selectAnswer() {
-      this.$emit('selectAnswer', this.question.title)
-    },
   },
   watch: {
     isActive() {
@@ -47,8 +42,7 @@ export default {
 .quiz-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  max-width: 631px;
+  gap: 24px;
   padding: 16px;
   outline: 1px solid var(--gray);
   border-radius: 6px;
@@ -70,10 +64,10 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 32px;
+    min-width: 32px;
     height: 32px;
     border: 2px solid var(--gray);
-    border-radius: 24px;
+    border-radius: 6px;
 
     svg {
       color: var(--primary);
