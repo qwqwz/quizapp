@@ -1,8 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import store from './store'
-import { createRouter, createWebHistory} from "vue-router";
 import Quizes from "./components/Quizes.vue";
+import { createRouter, createWebHistory} from "vue-router";
+
 
 const router = createRouter({
   history: createWebHistory(),

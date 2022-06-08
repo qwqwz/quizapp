@@ -1,6 +1,6 @@
 <template>
-  <label class="quiz-item" :class="isActive ? 'selected' : false">
-    <input class="checkbox" type="checkbox" :value="question.title" @click="isActive = !isActive"/>
+  <label class="quiz-item" :class="isActive ? 'selected' : false" @change="isActive = !isActive">
+    <input class="checkbox" type="checkbox" :value="question.title"/>
     <span class="icon"><icon icon="heroicons-solid:check"></icon></span>
     <span class="question-title"><slot></slot></span>
   </label>
