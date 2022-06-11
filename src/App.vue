@@ -13,8 +13,8 @@ export default  {
 
 <style lang="scss">
 :root {
-  --primary: #5EC5FF;
-  --primary-50: #5EC5FF50;
+  --primary: rgba(94, 197, 255);
+  --primary-50: rgba(94, 197, 255, 0.5);
   --gray: #B4CDDB;
   --text-gray: #305367;
   --light: #ffffff;
@@ -43,6 +43,11 @@ h2 {
   font-weight: 500;
   font-size: 36px;
   line-height: 44px;
+}
+
+a {
+  color: blue;
+  text-decoration: none; /* no underline */
 }
 
 button {

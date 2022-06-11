@@ -4,7 +4,7 @@ const store = createStore({
   state() {
   return {
     quizes: [
-      {id: 1, title: 'How good you know Albert?', disc: 'Description', type: 'Default', questions: [
+      {id: 1, title: 'How good you know sadasd asd asd asd as asdgasd asd asd s dd asd asd Albert?', disc: 'Description', type: 'Default', questions: [
           {id: 1, title: 'How many cutlets Albert stole?', disc: 'Albert was very fond of cutlets and took a piece for himself every chance he got. One evening my mother made cutlets for dinner. Albert could not resist and 30 minutes before supper he began to eat the cutlets.',
             type:'AnswerInputCheckbox',
           options: [
@@ -13,7 +13,7 @@ const store = createStore({
             {id: 3, title: 'Seven', right: false},
             {id: 4, title: 'Seven', right: false},
           ]},
-          {id: 2, title: 'Question2', disc: 'Question2 description', type:'AnswerInputCheckbox',
+          {id: 2, title: 'Question2', disc: 'Question2 description', type:'AnswerInputRadio',
             options: [
               {id: 1, title: 'Seven', right: true},
               {id: 2, title: 'Seven2', right: false},
@@ -34,6 +34,7 @@ const store = createStore({
               {id: 3, title: 'Seven', right: false},
               {id: 4, title: 'Seven', right: false},
             ]}
+        ]}, {id: 2, title: 'You debil sovsem ili shto', disc: 'Description', type: 'Default', questions: [
         ]}
     ]
   }
