@@ -1,9 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import store from './store'
-import myquizes from "../views/myquizes.vue";
-import Quizes from "./components/Quizes.vue";
-import { createRouter, createWebHistory} from "vue-router";
+import router from "./router";
 
 
 const clickOutside = {
@@ -22,20 +20,7 @@ const clickOutside = {
   },
 };
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    {
-      path: '/',
-      component: myquizes
-    },
 
-    {
-      path: '/quizes',
-      component: Quizes
-    }
-  ]
-})
 
 
 createApp(App)

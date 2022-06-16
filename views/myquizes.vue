@@ -3,9 +3,11 @@
     <h3 class="header">Quiz app</h3>
     <h4 class="myquizes-title">My Quizes</h4>
     <div class="myquizes-items">
+      <router-link to="/newquiz">
       <div class="item-wrap new_quiz">
         <p class="new_quiz-title">Add new quiz</p>
       </div>
+    </router-link>
       <quiz-item
         v-for="quiz in $store.state.quizes"
         :quiz="quiz"
@@ -22,20 +24,17 @@ export default {
   name: "myquizes",
   components: {QuizItem},
 
-  data () {
-    return {
-    }
+  data() {
+    return {}
   },
-  methods: {
-  }
+  methods: {}
 }
 </script>
 
 <style lang="scss" scoped>
 
 .myquizes {
-  margin-right: 24px;
-  margin-left: 24px;
+  margin: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,6 +57,14 @@ export default {
     width: 100%;
     max-width: 1010px;
     gap: 24px;
+
+    @media (max-width: 580px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+        font-size: 1.2rem;
+        line-height: 1.06;
+    }
 
     .item-wrap {
       display: flex;

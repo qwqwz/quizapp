@@ -1,5 +1,5 @@
 <template>
-<div class="dropdown-menu" v-if="isActive === true"
+<div class="dropdown-menu"
 >
 <slot></slot>
 </div>
@@ -10,13 +10,6 @@ export default {
   name: "DropdownMenu",
   props: {
     isActive: Boolean
-  },
-  data () {
-    return {
-      closing: false
-    }
-  },
-  methods: {
   }
 }
 </script>
@@ -33,6 +26,11 @@ export default {
   background-color: #375E75;
   position: absolute;
   border-radius: 12px 0px 12px 12px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.05);
+
+  @media (max-width: 400px) {
+    border-radius: 0px 12px 12px 12px;
+  }
 }
 
 </style>

@@ -1,39 +1,51 @@
 <template>
-  <div class="item-wrap quiz_item"
+  <div class="quiz_item"
        @mouseover="upHere = true" @mouseleave="upHere = false"
        v-click-outside="closeDropdownMenu"
+
   >
     <div class="item-body">
       <p class="questions_count">{{ quiz.questions.length }} questions</p>
       <p class="item_title">{{ quiz.title }}</p>
     </div>
-    <div class="item-controls"
-         v-show="upHere || isActive"
-    >
-      <div class="btn_edit-wrap">
-        <button class="item_btn btn_edit"
-                @click="turnActive"
-                :class="isActive === true ? 'active' : false"
-        >
-          <Icon icon="heroicons-solid:dots-vertical"></Icon>
-        </button>
-        <dropdown-menu class="myquizes-dropdown_menu"
-                       :isActive="isActive"
-                       @closeMenu="closeDropdownMenu"
-        >
-          <a class="dropdown_item dropdown_item_edit" href="/edit">
-            <div class="dropdown_item_body"
-            ><icon icon="heroicons-solid:pencil-alt"></icon>Edit</div></a>
-          <a class="dropdown_item dropdown_item_delete" href="#delete">
-            <div class="dropdown_item_body"><icon icon="heroicons-solid:trash"></icon>Delete</div></a>
-        </dropdown-menu>
+    <Transition>
+      <div class="item-controls"
+           v-show="upHere || isActive"
+      >
+        <div class="btn_edit-wrap">
+          <button class="item_btn btn_edit"
+                  @click="turnActive"
+                  :class="isActive === true ? 'active' : false"
+          >
+            <Icon icon="heroicons-solid:dots-vertical"></Icon>
+          </button>
+          <Transition>
+            <dropdown-menu class="myquizes-dropdown_menu"
+                           v-if="isActive === true"
+                           :isActive="isActive"
+            >
+              <a class="dropdown_item dropdown_item_edit" href="/edit">
+                <div class="dropdown_item_body"
+                >
+                  <icon icon="heroicons-solid:pencil-alt"></icon>
+                  Edit
+                </div>
+              </a>
+              <a class="dropdown_item dropdown_item_delete" href="#delete">
+                <div class="dropdown_item_body">
+                  <icon icon="heroicons-solid:trash"></icon>
+                  Delete
+                </div>
+              </a>
+            </dropdown-menu>
+          </Transition>
+        </div>
+<router-link to="/quizes" tag="button" class="item_btn btn_start">
+          <icon icon="heroicons-solid:play"></icon>
+          Start
+        </router-link>
       </div>
-
-      <button class="item_btn btn_start">
-        <icon icon="heroicons-solid:play"></icon>
-        Start
-      </button>
-    </div>
+    </Transition>
 
   </div>
 </template>
@@ -49,41 +61,37 @@ export default {
     quiz: Object
   },
 
-  data () {
+  data() {
     return {
       isActive: false,
       upHere: false,
     }
   },
   methods: {
-    turnActive () {
-      this.isActive = !this.isActive
-    },
     closeDropdownMenu() {
       this.isActive = false;
-    }
+    },
+    turnActive() {
+      this.isActive = !this.isActive
+    },
   }
 }
 </script>
 
 <style lang="scss" scoped>
 
-.item-wrap {
-  display: flex;
-  width: 100%;
-  max-width: 493px;
-  max-height: 220px;
-  height: 37vw;
-  padding: 24px;
-
-p {
-  -webkit-line-clamp: 2;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-size: 1.4rem;
-  line-height: 1.05;
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.1s ease;
 }
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.item-wrap {
+
 }
 
 .quiz_item {
@@ -91,14 +99,30 @@ p {
   justify-content: space-between;
   background: var(--text-gray);
   border-radius: 12px;
-
-  //&:hover .item-controls {
-  //  opacity: 100%;
-  //  transition: 0.1s ease-out;
-  //}
+  display: flex;
+  width: 100%;
+  max-width: 493px;
+  max-height: 220px;
+  height: 37vw;
+  padding: 24px;
 
   p {
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 1.4rem;
+    line-height: 1.05;
     color: white;
+  }
+
+  @media (max-width: 550px) {
+    min-height: 220px;
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.06;
+    }
   }
 
   .item-body {
@@ -143,6 +167,7 @@ p {
 
       .active {
         background-color: #375E75;
+        border-radius: 6px 6px 0px 0px;
       }
 
       .btn_edit {
@@ -156,7 +181,7 @@ p {
       }
 
       .myquizes-dropdown_menu {
-        top: 40px;
+        top: 48px;
         right: 134px;
 
         .dropdown_item {
@@ -186,6 +211,10 @@ p {
           &:hover {
             background-color: #665C6D;
           }
+        }
+
+        @media (max-width: 400px) {
+          right: -28px;
         }
       }
     }

@@ -53,7 +53,7 @@
 
 <script>
 import {Icon} from '@iconify/vue';
-import quizQuestions from "./QuizQuestions.vue";
+import quizQuestions from "../src/components/QuizQuestions.vue";
 
 export default {
   name: "Quizes",
