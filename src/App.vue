@@ -15,9 +15,16 @@ export default  {
 :root {
   --primary: rgba(94, 197, 255);
   --primary-50: rgba(94, 197, 255, 0.5);
+  --primary-30: #CEEEFF;
   --gray: #B4CDDB;
+  --gray-darken: #88B0C7;
   --text-gray: #305367;
   --light: #ffffff;
+  --btn-bg-light: #E9F0F5;
+  --green-default: #27AE60;
+  --red-default: #EB5757;
+  --red-light: #F9CDCD;
+
 }
 
 * {
@@ -56,5 +63,9 @@ button {
   border: none;
   outline: none;
   background: none;
+}
+
+li {
+  list-style: none;
 }
 </style>

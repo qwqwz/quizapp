@@ -40,7 +40,7 @@
             </dropdown-menu>
           </Transition>
         </div>
-<router-link to="/quizes" tag="button" class="item_btn btn_start">
+        <router-link to="/quizes" tag="button" class="item_btn btn_start">
           <icon icon="heroicons-solid:play"></icon>
           Start
         </router-link>

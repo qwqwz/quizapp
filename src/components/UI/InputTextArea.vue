@@ -1,10 +1,18 @@
 <template>
-<textarea class="textarea"></textarea>
+<textarea :value="modelValue" @input="updateInput" class="textarea"></textarea>
 </template>
 
 <script>
 export default {
-  name: "InputTextArea"
+  name: "InputTextArea",
+  props: {
+    modelValue: [String, Number]
+  },
+  methods: {
+    updateInput(event) {
+      this.$emit('update:modelValue', event.target.value)
+    }
+  }
 }
 </script>
 
