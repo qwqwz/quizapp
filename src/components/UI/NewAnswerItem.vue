@@ -1,19 +1,19 @@
 <template>
-  <div class="question-item" :class="option.right === true ? 'checked' : false">
-    <div class="question-item-body">
-      <div class="question-item-main">
-        <div class="question-item_drag">
+  <div class="answer-item" :class="option.right === true ? 'checked' : false">
+    <div class="answer-item-body">
+      <div class="answer-item-main">
+        <div class="answer-item_drag">
           <icon icon="heroicons-solid:menu"></icon>
         </div>
-          <input type="text" placeholder="Type answer" v-model="option.title" @input="updateTitle">
+          <input type="text" placeholder="Type answer" v-model.trim="option.title">
       </div>
-      <div class="question-item_edit-wrap">
+      <div class="answer-item_edit-wrap">
         <p>Correct answer</p>
-        <div class="question-item_delete" @click="deleteAnswer">
+        <div class="answer-item_delete" @click="deleteAnswer">
           <icon icon="heroicons-solid:trash"></icon>
         </div>
-        <label class="question-item_edit">
-          <input v-model="option.right" type="checkbox" class="checkbox">
+        <label class="answer-item_edit">
+          <input v-model.trim="option.right" type="checkbox" class="checkbox">
           <icon icon="heroicons-solid:check"></icon>
         </label>
       </div>
@@ -37,9 +37,6 @@ export default {
     }
   },
   methods: {
-    updateTitle(event) {
-      this.$emit('updateTitle', event.target.value, this.index)
-    },
     deleteAnswer() {
       this.$emit('deleteAnswer', this.option.id)
     }
@@ -79,7 +76,7 @@ input[type="text"] {
   }
 }
 
-.question-item {
+.answer-item {
   border: 2px solid var(--gray);
   color: var(--gray);
   border-radius: 6px;
@@ -91,29 +88,29 @@ input[type="text"] {
 
     border: 2px solid var(--gray-darken);
 
-    &:hover .question-item_drag {
+    &:hover .answer-item_drag {
       color: var(--gray-darken);
     }
 
-    &:hover .question-item_edit-wrap .question-item_delete {
+    &:hover .answer-item_edit-wrap .answer-item_delete {
       visibility: visible;
     }
   }
 
-  .question-item-body {
+  .answer-item-body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-left: 8px;
 
-    .question-item-main {
+    .answer-item-main {
       display: flex;
       flex-direction: row;
       align-items: center;
       width: 65%;
 
-      .question-item_drag {
+      .answer-item_drag {
         display: flex;
         justify-content: center;
         cursor: move;
@@ -122,7 +119,7 @@ input[type="text"] {
     }
 
 
-    .question-item_edit-wrap {
+    .answer-item_edit-wrap {
 
       display: flex;
       align-items: center;
@@ -139,7 +136,7 @@ input[type="text"] {
         color: var(--green-default);
       }
 
-      .question-item_edit {
+      .answer-item_edit {
         border: 2px solid var(--gray);
         color: var(--green-default);
         border-radius: 8px;
@@ -157,7 +154,7 @@ input[type="text"] {
           transition: 0.15s;
         }
       }
-      .question-item_delete {
+      .answer-item_delete {
         color: var(--red-default);
         border-radius: 8px;
         padding: 6px;
@@ -182,29 +179,29 @@ input[type="text"] {
 
 
   input[type="text"] {
-    outline-color: var(--green-default);
+    outline-color: var(--green-default) ;
   }
 
-  border: 2px solid var(--green-default);
+  border: 2px solid var(--green-default) !important;
 
-  .question-item_drag {
+  .answer-item_drag {
     color: var(--green-default);
   }
 
 
-  .question-item_edit {
+  .answer-item_edit {
     border: 2px solid var(--green-default) !important;
   }
 
-  .question-item_edit-wrap .question-item_delete {
+  .answer-item_edit-wrap .answer-item_delete {
     display: none !important;
   }
 
   &:hover {
-    border: 2px solid var(--green-default);
+    border: 2px solid var(--green-default) !important;
 
 
-    &:hover .question-item_drag {
+    &:hover .answer-item_drag {
       color: var(--green-default);
     }
   }

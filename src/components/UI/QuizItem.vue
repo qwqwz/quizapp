@@ -24,7 +24,7 @@
                            v-if="isActive === true"
                            :isActive="isActive"
             >
-              <a class="dropdown_item dropdown_item_edit" href="/edit">
+              <a class="dropdown_item dropdown_item_edit" href="/editquiz">
                 <div class="dropdown_item_body"
                 >
                   <icon icon="heroicons-solid:pencil-alt"></icon>
@@ -53,10 +53,11 @@
 <script>
 import {Icon} from "@iconify/vue";
 import DropdownMenu from "./DropdownMenu.vue";
+import EditQuiz from "../../../views/EditQuiz.vue";
 
 export default {
   name: "QuizItem",
-  components: {DropdownMenu, Icon},
+  components: {DropdownMenu, Icon, EditQuiz},
   props: {
     quiz: Object
   },

@@ -3,11 +3,10 @@
        v-if="currentQuestion === this.questions.id - 1"
   >
     <div class="quiz-wrap">
-      <p class="quiz-title">{{ this.questions.title }}</p>
 
       <div class="quiz-body">
         <div class="quiz-info">
-          <p class="disc">{{ this.questions.disc }} {{this.currentAnswers}}</p>
+          <p class="disc">{{ this.questions.desc }} {{this.currentAnswers}}</p>
           <div class="question-title">
             <div class="alert"></div>
             <div class="title"><h2>{{ this.questions.title }}</h2></div>
@@ -28,7 +27,7 @@
             :key="question.id"
             v-for="question in this.questions.options"
             :question="question"
-            :active="currentAnswers?.id"
+            :active="currentAnswers[0]?.id"
             @change="selectAnswer(question)"
           >{{ question.title }}
           </AnswerInputRadio>
@@ -78,11 +77,6 @@ export default {
 
     @media (max-width: 680px) {
       align-items: normal;
-    }
-
-    .quiz-title {
-      text-align: center;
-      margin-bottom: 64px;
     }
 
     .quiz-body {

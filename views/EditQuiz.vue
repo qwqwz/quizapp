@@ -107,7 +107,7 @@
       <div class="newquestion_warn" style="text-align: end">
         <p v-for="warn in newQuizWarn">{{ warn }}</p>
       </div>
-      <button href="/" @click="createQuiz" class="btn_create-quiz">
+      <button @click="createQuiz" tag="button" class="btn_create-quiz">
         Create quiz
       </button>
     </div>
@@ -121,11 +121,10 @@ import NewQuizQuestionItem from "../src/components/UI/NewQuizQuestionItem.vue";
 import draggable from "vuedraggable";
 import ModalWindow from "../src/components/UI/ModalWindow.vue";
 import NewAnswerItem from "../src/components/UI/NewAnswerItem.vue";
-import myquizes from "./myquizes.vue";
 
 export default {
   name: "NewQuiz",
-  components: {InputText, InputTextArea, NewQuizQuestionItem, draggable, ModalWindow, NewAnswerItem, myquizes},
+  components: {InputText, InputTextArea, NewQuizQuestionItem, draggable, ModalWindow, NewAnswerItem},
   data() {
     return {
       enabled: true,
@@ -268,10 +267,7 @@ export default {
       }
     },
     createQuiz() {
-      if (this.checkQuizForm()) {
-        let quiz = {title: this.quizinfo.title, desc: this.quizinfo.desc, questions: this.questions}
-        this.$store.commit('createQuiz', quiz)
-      }
+
     },
     deleteQuestion(id) {
       this.questions = this.questions.filter(x => x.id !== id)

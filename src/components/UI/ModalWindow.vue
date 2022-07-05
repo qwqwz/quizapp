@@ -63,17 +63,21 @@ export default {
   z-index: 3;
 
   .modal-window {
-    max-height: calc(100vh - 210px);
-    overflow-y: auto;
+    max-height: calc(100vh - 220px);
     margin: 22px;
     max-width: 603px;
     width: 100%;
     background-color: var(--light);
     border-radius: 6px;
-    padding: 22px;
+    padding: 0px 22px 0px 22px;
 
     .modal-header {
       display: flex;
+      position: sticky;
+      top: 0;
+      margin-top: 22px;
+      padding: 12px 0px 12px 0px;
+      background-color: var(--light);
       justify-content: space-between;
       align-items: center;
 
@@ -95,17 +99,24 @@ export default {
     }
 
     .modal-body {
+      max-height: calc(80vh - 240px);
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
-      margin: 44px 0 44px;
+      margin-top: 44px;
+      padding-bottom: 24px;
+      padding-right: 12px;
       gap: 22px;
     }
 
     .modal-footer {
+      position: sticky;
+      bottom: 0;
+      background-color: var(--light);
       display: flex;
       justify-content: right;
       flex-wrap: wrap;
-      margin-top: 22px;
+      padding: 12px 0px 12px 0px;
       gap: 16px;
       align-items: center;
     }

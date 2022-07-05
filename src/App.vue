@@ -17,11 +17,14 @@ export default  {
   --primary-50: rgba(94, 197, 255, 0.5);
   --primary-30: #CEEEFF;
   --gray: #B4CDDB;
+  --gray-light: #FAFAFA;
   --gray-darken: #88B0C7;
   --text-gray: #305367;
   --light: #ffffff;
+  --light-60: rgba(255, 255, 255, 60%);
   --btn-bg-light: #E9F0F5;
   --green-default: #27AE60;
+  --green-light: #DBEFE3;
   --red-default: #EB5757;
   --red-light: #F9CDCD;
 
@@ -68,4 +71,6 @@ button {
 li {
   list-style: none;
 }
+
+
 </style>

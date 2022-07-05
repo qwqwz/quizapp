@@ -3,11 +3,11 @@
     <h3 class="header">Quiz app</h3>
     <h4 class="myquizes-title">My Quizes</h4>
     <div class="myquizes-items">
-      <router-link to="/newquiz">
+      <a href="/newquiz">
       <div class="item-wrap new_quiz">
         <p class="new_quiz-title">Add new quiz</p>
       </div>
-    </router-link>
+    </a>
       <quiz-item
         v-for="quiz in $store.state.quizes"
         :quiz="quiz"
@@ -19,10 +19,11 @@
 
 <script>
 import QuizItem from "../src/components/UI/QuizItem.vue";
+import EditQuiz from "./EditQuiz.vue";
 
 export default {
   name: "myquizes",
-  components: {QuizItem},
+  components: {QuizItem, EditQuiz},
 
   data() {
     return {}
